@@ -1,0 +1,82 @@
+﻿<Window x:Class="ImgConv.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ImgConv"
+        mc:Ignorable="d"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
+        Title="图片处理小工具" Height="500" Width="350">
+    <Grid>
+
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="6*"></RowDefinition>
+                <RowDefinition Height="4*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0" HorizontalAlignment="Center">
+                <StackPanel  Orientation="Horizontal" Margin=" 0 10 0 0">
+                    <Button Name="bt_SelectDir" Width="100" Height="30" Background="CadetBlue">选择文件夹</Button>
+                    <TextBox Name="tb_dirPath" Width="200" Height="30" Margin="20 0 0 0" VerticalContentAlignment="Center"></TextBox>
+                </StackPanel>
+
+                <StackPanel  Orientation="Horizontal" Margin=" 0 10 0 0">
+                    <Label Width="100" Height="30"  HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="15">遍历子文件夹</Label>
+                    <CheckBox Name="cbExAllFile" Width="200" Height="30" Margin="20 0 0 0" VerticalContentAlignment="Center"></CheckBox>
+                </StackPanel>
+
+                <StackPanel  Orientation="Horizontal" Margin=" 0 10 0 0">
+                    <Label Width="100" Height="30"  HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="15">删除原文件</Label>
+                    <CheckBox Name="IsDelSource" Width="200" Height="30" Margin="20 0 0 0" VerticalContentAlignment="Center"></CheckBox>
+                </StackPanel>
+
+                <StackPanel  Orientation="Horizontal" Margin=" 0 10 0 0" HorizontalAlignment="Center">
+                    <Label Width="100" Height="30"  HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="15">转换格式</Label>
+                    <ComboBox Name="cb_imgType" Width="200" Height="30" Margin="20 0 0 0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                        <ComboBoxItem IsSelected="True">png</ComboBoxItem>
+                        <ComboBoxItem>jpg</ComboBoxItem>
+                        <ComboBoxItem>jpeg</ComboBoxItem>
+                        <ComboBoxItem>gif</ComboBoxItem>
+                        <ComboBoxItem>bmp</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel  Orientation="Horizontal" Margin=" 0 10 0 0">
+                    <TextBlock Width="100" Height="60" TextWrapping="Wrap" FontSize="15">异步循环加速(照片分割不建议使用)</TextBlock>
+                    <CheckBox Name="IsParallel" IsChecked="True" Width="200" Height="30" Margin="20 0 0 0" VerticalContentAlignment="Center"></CheckBox>
+                </StackPanel>
+            </StackPanel>
+
+            <hc:TabControl  Grid.Row="1">
+
+                <hc:TabItem Header="格式转换">
+                    <StackPanel>
+                        <Button Name="btBeginConvImg" Width="320" Margin="0 50 0 0" Height="35" Background="OrangeRed">开始转换格式</Button>
+                    </StackPanel>
+                </hc:TabItem>
+
+                <hc:TabItem Header="照片分割">
+                    <StackPanel Grid.Row="1" HorizontalAlignment="Center">
+                        <StackPanel  Orientation="Horizontal" Margin=" 0 10 0 0">
+                            <Label Width="100" Height="30" VerticalContentAlignment="Center" FontSize="15">分割行数</Label>
+                            <TextBox Name="tb_SplitRows" Width="200" Height="30" Margin="20 0 0 0" VerticalContentAlignment="Center" Text="2"></TextBox>
+                        </StackPanel>
+
+                        <StackPanel  Orientation="Horizontal" Margin=" 0 10 0 0">
+                            <Label Width="100" Height="30" VerticalContentAlignment="Center" FontSize="15">分割列数</Label>
+                            <TextBox Name="tb_SplitCols" Width="200" Height="30" Margin="20 0 0 0" VerticalContentAlignment="Center" Text="2"></TextBox>
+                        </StackPanel>
+
+                        <Button Name="btBeginSplit"  Width="320" Margin="0 20 0 0" Height="35"  Background="OrangeRed">开始分割照片</Button>
+                    </StackPanel>
+                </hc:TabItem>
+
+
+            </hc:TabControl>
+
+        </Grid>
+
+    </Grid>
+</Window>
